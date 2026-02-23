@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreeVoiture Knowledge Index</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>FreeVoiture Knowledge Index</h1>
+    <p>Search software, adapters, protocols, ECU details, known caveats, and practical workflows.</p>
+  </header>
+
+  <main class="layout">
+    <aside class="filters">
+      <h2>Filters</h2>
+      <label>Brand
+        <select id="brandFilter"><option value="">All</option></select>
+      </label>
+      <label>Category
+        <select id="categoryFilter"><option value="">All</option></select>
+      </label>
+      <label>Protocol
+        <select id="protocolFilter"><option value="">All</option></select>
+      </label>
+      <label>License
+        <select id="licenseFilter"><option value="">All</option></select>
+      </label>
+      <label class="check"><input type="checkbox" id="offlineOnly" /> Offline capable only</label>
+      <button id="clearFilters">Clear filters</button>
+
+      <section class="saved-searches">
+        <h3>Saved searches</h3>
+        <div class="row">
+          <input id="saveName" placeholder="name this query" />
+          <button id="saveSearch">Save</button>
+        </div>
+        <ul id="savedSearchList"></ul>
+      </section>
+    </aside>
+
+    <section class="search-area">
+      <div class="search-box">
+        <input id="searchInput" placeholder="Search anything: DPF regen, SID208 pinout, Lexia, CAN IDs, key learning..." autocomplete="off" />
+        <button id="searchBtn">Search</button>
+      </div>
+      <p class="hint">Index scope: all fields including aliases, tags, compatibility, notes, command examples, and known limitations.</p>
+      <div id="stats"></div>
+      <div id="results" class="results"></div>
+    </section>
+
+    <section class="detail" id="detail">
+      <h2>Record details</h2>
+      <p class="empty">Select a result to inspect full metadata.</p>
+    </section>
+  </main>
+
+  <template id="resultTemplate">
+    <article class="result-card">
+      <h3></h3>
+      <p class="meta"></p>
+      <p class="summary"></p>
+      <p class="tags"></p>
+      <button class="view">View details</button>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
